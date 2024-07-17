@@ -239,7 +239,7 @@ async def view_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
   plan, _ = find_user_plan(user_id)
   current_time = datetime.now()
 
-  if plan == "free" and int(amount) > 500:
+  if plan == "free" and int(amount) > 10000:
       await update.message.reply_text("Giới hạn chạy view của plan Free là 500 views.")
       return
 
@@ -262,7 +262,7 @@ async def view_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
       f'┣➤ SỐ LƯỢNG VIEW: {amount} views\n'
       f'┣➤ TRẠNG THÁI: Thành Công\n'
       f'┣➤ THỜI GIAN: {today}\n'
-      f'┣➤ ADMIN: Buffa aka VMT\n'
+      f'┣➤ ADMIN: Quang\n'
       f'┗━━━━━━━━━━━━━┛'
   )
   await update.message.reply_text(response_message)
@@ -275,7 +275,7 @@ async def getkey_command(update: Update, context: CallbackContext) -> None:
   expire_date = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
   save_key(new_key, expire_date, 'free')
 
-  url = f"https://web1s.com/st?token=0fb0090f-e188-4d99-b510-0236f65c597a&url=https://connguoihaha.github.io/GetKeyPage/?key={new_key}"
+  url = f"https://yeumoney.com/QL_api.php?token=04c478d7b444382aa70e27bedc1e338c737aeb2aee19a52c082fa6412ea8f725&url=https://key.nqtool.net/?key={new_key}"
   try:
       async with httpx.AsyncClient() as client:
           response = await client.get(url, follow_redirects=True)
